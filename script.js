@@ -1,10 +1,19 @@
 'use strict';
 
-console.log(document.querySelector('.message').textContent);
-document.querySelector('.message').textContent = '🎉 Número Correcto';
+const numSecreto = Math.trunc(Math.random() * 20) + 1;
+document.querySelector('.number').textContent = numSecreto;
 
-document.querySelector('.number').textContent = 13;
-document.querySelector('.score').textContent = 20;
+document.querySelector('.check').addEventListener('click', function () {
+  const guess = Number(document.querySelector('.guess').value);
 
-document.querySelector('.guess').value = 23;
-console.log(document.querySelector('.guess').value);
+  if (!guess) {
+    document.querySelector('.message').textContent =
+      '⛔¡Primero prueba con un número válido!';
+  } else if (guess === numSecreto) {
+    document.querySelector('.message').textContent = '🎉🎉 ¡Has acertado!';
+  } else if (guess > numSecreto) {
+    document.querySelector('.message').textContent = '📈 ¡Demasiado alto!';
+  } else if (guess < numSecreto) {
+    document.querySelector('.message').textContent = '📉 ¡Demasiado bajo!';
+  }
+});
