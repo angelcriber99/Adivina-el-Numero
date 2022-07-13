@@ -26,7 +26,7 @@ document.querySelector('.check').addEventListener('click', function () {
 
     if (marcador > record) {
       record = marcador;
-      document.querySelector('.record').textContent = record;
+      document.querySelector('.highscore').textContent = record;
     }
 
     // El jugador se equivoca
@@ -36,10 +36,10 @@ document.querySelector('.check').addEventListener('click', function () {
         guess > numSecreto ? '📈 ¡Demasiado alto!' : '📉 ¡Demasiado bajo!'
       );
       marcador--;
-      document.querySelector('.marcador').textContent = marcador;
+      document.querySelector('.score').textContent = marcador;
     } else {
       displayMessage('💀 Game over 💀');
-      document.querySelector('.marcador').textContent = 0;
+      document.querySelector('.score').textContent = 0;
     }
   }
 });
@@ -49,7 +49,7 @@ document.querySelector('.again').addEventListener('click', function () {
   numSecreto = Math.trunc(Math.random() * 20) + 1;
 
   displayMessage('Empieza a adivinar..');
-  document.querySelector('.marcador').textContent = marcador;
+  document.querySelector('.score').textContent = marcador;
   document.querySelector('.number').textContent = '?';
   document.querySelector('.guess').value = '';
 
